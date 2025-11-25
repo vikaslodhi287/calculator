@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+html, body { height: 100%; }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f6f8ff 0%, #e8f7f2 100%);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.calculator {
+  width: 90%;
+  max-width: 420px;
+  height: 70%;            /* using percentage as you requested */
+  max-height: 640px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(20,40,60,0.12);
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  overflow: hidden;
+}
+
+.display {
+  padding: 18px;
+  background: linear-gradient(180deg, #1f2937, #111827);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+}
+.display .history {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  min-height: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.display .current {
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.keys {
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: linear-gradient(180deg, #fbfdff, #f2f6ff);
+}
+
+button.key {
+  height: 64px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 10px rgba(20,40,60,0.06);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  background: #ffffff;
+}
+button.key:active { transform: translateY(2px); box-shadow: none; }
+
+button.op {
+  background: linear-gradient(180deg,#ffd6a5,#ffb470);
+  color: #3b2f1f;
+  font-weight: 600;
+}
+
+button.clear {
+  background: linear-gradient(180deg,#ffd6d6,#ffb3b3);
+  color: #6b1010;
+  font-weight: 600;
+}
+button.equal {
+  grid-column: span 2;
+  background: linear-gradient(180deg,#b7ffdb,#6ef0a6);
+  color: #06341a;
+  font-weight: 700;
+  height: 64px;
+}
+
+button.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 22px;
+}
+
+@media (max-height: 620px) {
+  .calculator { height: 86%; }
+  button.key { height: 56px; }
+  .display .current { font-size: 1.8rem; }
+}
